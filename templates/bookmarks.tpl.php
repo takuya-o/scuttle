@@ -93,9 +93,16 @@ if (count($bookmarks) > 0) {
         if ($GLOBALS['useredir']) {
             $address = $GLOBALS['url_redir'] . $address;
         }
-        
+	$enable_thumb = 'on';
         // Output
-        echo '<li class="xfolkentry'. $access .'">'."\n";
+	echo '<li style="overflow:hidden;zoom:1;" class="xfolkentry'. $access .'">'."\n";
+	if($enable_thumb=='on')
+	{
+		echo '<div style="width:140px;float:left;">' . "\n";
+		echo '<a href="' . $address . '">';
+		echo '<img src="http://capture.heartrails.com/120x90/shadow/shorten?' . $address . '" /></a>' . "\n";
+		echo '</div>' . "\n";
+	}
         echo '<div class="link"><a href="'. $address .'"'. $rel .' class="taggedlink">'. filter($row['bTitle']) ."</a></div>\n";
         if ($row['bDescription'] != '') {
             echo '<div class="description">'. filter($row['bDescription']) ."</div>\n";
