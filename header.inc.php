@@ -37,4 +37,6 @@ else {
   ini_set('display_errors',   '0');
   ini_set('mysql.trace_mode', '0');
   error_reporting(E_ALL);
+  // PHP5.4 PHP Notice:  Undefined variable:
+  error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
 }
